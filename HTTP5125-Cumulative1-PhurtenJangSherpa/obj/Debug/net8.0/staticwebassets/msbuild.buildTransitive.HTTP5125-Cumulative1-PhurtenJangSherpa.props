@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/HTTP5125-Cumulative1-PhurtenJangSherpa.props" />
+</Project>

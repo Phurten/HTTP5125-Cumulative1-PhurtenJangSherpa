@@ -1,0 +1,7 @@
+@model School.Models.Teacher
+
+<h1>@Model.TeacherFName @Model.TeacherLName</h1>
+
+<p><strong>Employee Number:</strong> @Model.EmployeeNumber</p>
+<p><strong>Hire Date:</strong> @(Model.HireDate?.ToString("yyyy-MM-dd") ?? "N/A")</p>
+<p><strong>Salary:</strong> @Model.Salary?.ToString("C") ?? "N/A"</p>

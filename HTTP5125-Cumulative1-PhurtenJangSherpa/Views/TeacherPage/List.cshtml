@@ -1,0 +1,14 @@
+@model IEnumerable<School.Models.Teacher>
+
+<h1>Teachers List</h1>
+
+<ul>
+    @foreach (var teacher in Model)
+    {
+        <li>
+            <a href="/TeacherPage/Show/@teacher.TeacherId">
+                @teacher.TeacherFName @teacher.TeacherLName
+            </a>
+        </li>
+    }
+</ul>
