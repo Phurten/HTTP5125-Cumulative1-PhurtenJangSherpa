@@ -9,47 +9,55 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HTTP5125-Cumulative1-PhurtenJangSherpa
 build_property.RootNamespace = HTTP5125-Cumulative1-PhurtenJangSherpa
-build_property.ProjectDir = /Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/
+build_property.ProjectDir = /Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa
+build_property.MSBuildProjectDirectory = /Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Home/Index.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Home/Privacy.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Shared/Error.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/TeacherPage/List.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/TeacherPage/DeleteConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlclBhZ2UvRGVsZXRlQ29uZmlybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/TeacherPage/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlclBhZ2UvTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/TeacherPage/Show.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/TeacherPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlclBhZ2UvTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/TeacherPage/Show.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlclBhZ2UvU2hvdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/_ViewImports.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/_ViewStart.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Shared/_Layout.cshtml]
+[/Users/phur10/Desktop/HTTP-5125 Back End/assignments/HTTP5125-Cumulative2-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/HTTP5125-Cumulative1-PhurtenJangSherpa/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-igumb8gt0o

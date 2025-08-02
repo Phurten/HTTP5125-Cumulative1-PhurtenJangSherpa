@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HTTP5125-Cumulative1-PhurtenJangSherpa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c396b0a216b558d3fb9eac437bacb4e2645a9311")]
 [assembly: System.Reflection.AssemblyProductAttribute("HTTP5125-Cumulative1-PhurtenJangSherpa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HTTP5125-Cumulative1-PhurtenJangSherpa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

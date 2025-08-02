@@ -1,7 +1,15 @@
 @model School.Models.Teacher
 
-<h1>@Model.TeacherFName @Model.TeacherLName</h1>
+<h1>Teacher Details</h1>
+
+<h2>@Model.TeacherFName @Model.TeacherLName</h2>
 
 <p><strong>Employee Number:</strong> @Model.EmployeeNumber</p>
 <p><strong>Hire Date:</strong> @(Model.HireDate?.ToString("yyyy-MM-dd") ?? "N/A")</p>
 <p><strong>Salary:</strong> @Model.Salary?.ToString("C") ?? "N/A"</p>
+<p><strong>Work Phone:</strong> @Model.TeacherWorkPhone</p>
+
+<p>
+    <a asp-action="DeleteConfirm" asp-route-id="@Model.TeacherId" class="btn btn-danger">Delete</a>
+    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+</p>

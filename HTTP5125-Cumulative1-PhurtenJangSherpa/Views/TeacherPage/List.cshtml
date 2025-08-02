@@ -2,13 +2,45 @@
 
 <h1>Teachers List</h1>
 
-<ul>
+<p>
+    <a asp-action="New" class="btn btn-dark">Add New Teacher</a>
+</p>
+
+<form asp-action="SearchByHireDate" method="get" class="form-inline mb-3">
+    <label for="min">Hire Date From:</label>
+    <input type="date" name="min" class="form-control mx-2" required />
+    <label for="max">To:</label>
+    <input type="date" name="max" class="form-control mx-2" required />
+    <button type="submit" class="btn btn-dark">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Employee Number</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+            <th>Work Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
     @foreach (var teacher in Model)
     {
-        <li>
-            <a href="/TeacherPage/Show/@teacher.TeacherId">
-                @teacher.TeacherFName @teacher.TeacherLName
-            </a>
-        </li>
+        <tr>
+            <td>@teacher.TeacherFName</td>
+            <td>@teacher.TeacherLName</td>
+            <td>@teacher.EmployeeNumber</td>
+            <td>@teacher.HireDate?.ToString("yyyy-MM-dd")</td>
+            <td>@teacher.Salary</td>
+            <td>@teacher.TeacherWorkPhone</td>
+            <td>
+                <a asp-action="Show" asp-route-id="@teacher.TeacherId" class="btn btn-dark btn-sm">Details</a>
+                <a asp-action="DeleteConfirm" asp-route-id="@teacher.TeacherId" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
     }
-</ul>
+    </tbody>
+</table>
