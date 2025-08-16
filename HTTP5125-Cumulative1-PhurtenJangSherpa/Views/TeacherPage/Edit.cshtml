@@ -1,0 +1,91 @@
+@model School.Models.Teacher
+
+@{
+    ViewData["Title"] = "Edit Teacher";
+}
+
+<h2>Edit Teacher</h2>
+
+<div id="result-message"></div>
+
+<form id="editTeacherForm">
+    <input type="hidden" id="TeacherId" name="TeacherId" value="@Model.TeacherId" />
+
+    <div>
+        <label for="TeacherFName">First Name:</label>
+        <input type="text" id="TeacherFName" name="TeacherFName" value="@Model.TeacherFName" required />
+    </div>
+    <div>
+        <label for="TeacherLName">Last Name:</label>
+        <input type="text" id="TeacherLName" name="TeacherLName" value="@Model.TeacherLName" required />
+    </div>
+    <div>
+        <label for="EmployeeNumber">Employee Number:</label>
+        <input type="text" id="EmployeeNumber" name="EmployeeNumber" value="@Model.EmployeeNumber" required pattern="^T\d+$" />
+    </div>
+    <div>
+        <label for="HireDate">Hire Date:</label>
+        <input type="date" id="HireDate" name="HireDate" value="@(Model.HireDate?.ToString("yyyy-MM-dd"))" required />
+    </div>
+    <div>
+        <label for="Salary">Salary:</label>
+        <input type="number" id="Salary" name="Salary" value="@Model.Salary" min="0" step="0.01" required />
+    </div>
+    <div>
+        <label for="TeacherWorkPhone">Work Phone:</label>
+        <input type="tel" id="TeacherWorkPhone" name="TeacherWorkPhone" value="@Model.TeacherWorkPhone" />
+    </div>
+    <button type="submit" class="btn btn-dark">Update Teacher</button>
+    <a href="@Url.Action("List", "TeacherPage")" class="btn btn-secondary" id="backToListBtn">Back to List</a>
+</form>
+
+<script>
+document.getElementById('editTeacherForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Client-side validation
+    const fname = document.getElementById('TeacherFName').value.trim();
+    const lname = document.getElementById('TeacherLName').value.trim();
+    const hireDate = document.getElementById('HireDate').value;
+    const salary = parseFloat(document.getElementById('Salary').value);
+    const today = new Date().toISOString().split('T')[0];
+
+    let errors = [];
+    if (!fname) errors.push("First name is required.");
+    if (!lname) errors.push("Last name is required.");
+    if (hireDate > today) errors.push("Hire date cannot be in the future.");
+    if (salary < 0) errors.push("Salary must be non-negative.");
+
+    if (errors.length > 0) {
+        document.getElementById('result-message').innerHTML = "<div style='color:red'>" + errors.join("<br>") + "</div>";
+        return;
+    }
+
+    // Prepare data
+    const teacher = {
+        TeacherId: parseInt(document.getElementById('TeacherId').value),
+        TeacherFName: fname,
+        TeacherLName: lname,
+        EmployeeNumber: document.getElementById('EmployeeNumber').value,
+        HireDate: hireDate,
+        Salary: salary,
+        TeacherWorkPhone: document.getElementById('TeacherWorkPhone').value
+    };
+
+    // AJAX PUT request
+    const response = await fetch(`/api/teacher/${teacher.TeacherId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(teacher)
+    });
+
+    if (response.ok) {
+        document.getElementById('result-message').innerHTML = "<div style='color:green'>Teacher updated successfully!</div>";
+        // Optionally, enable the Back to List button after success
+        document.getElementById('backToListBtn').focus();
+    } else {
+        const error = await response.json();
+        document.getElementById('result-message').innerHTML = "<div style='color:red'>Update failed: " + (error.title || JSON.stringify(error)) + "</div>";
+    }
+});
+</script>

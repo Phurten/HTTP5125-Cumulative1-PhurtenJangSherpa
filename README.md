@@ -1,4 +1,4 @@
-## Assignment Name: C# Cumulative Assignment 2
+## Assignment Name: C# Cumulative Assignment 3
 
 ## Name: Phurten Jang Sherpa
 
@@ -20,6 +20,11 @@
       `DELETE http://localhost:{port}/api/teacher/{id}`  
       Deletes a teacher by ID. Returns 404 if the teacher does not exist.
 
+- [✔] **Web API – Update Teacher (PUT)** 
+      `PUT http://localhost:5215/api/teacher/{id}` 
+      Updates a teacher’s information with full server-side validation.
+      Handles errors: not found, empty/invalid fields, duplicate employee number, future hire date, negative salary.
+
 - [✔] **MVC Page – List All Teachers**  
       `/TeacherPage/List`  
       Displays a server-rendered list of all teachers, including work phone and action buttons.
@@ -36,6 +41,12 @@
       `/TeacherPage/DeleteConfirm/{id}`  
       Asks the user to confirm deletion of a teacher.
 
+- [✔] **MVC Page – Edit Teacher**
+      `/TeacherPage/Edit/{id}`
+      - AJAX form for editing a teacher with client-side and server-side validation.
+      - User-friendly error and success messages.
+      - "Back to List" button for easy navigation.
+
 - [✔] **Validation & Error Handling**  
       - Required fields, unique employee number, correct format, hire date not in the future, and positive salary.
       - User-friendly error messages in forms and details view.
@@ -44,6 +55,12 @@
       - Used Bootstrap for consistent button and form styling.
       - "Add New Teacher", "Search", and "Details" buttons are styled black (`btn-dark`).
 
+- [✔] **Initiative Features**
+      - Server-side validation for all fields and uniqueness.
+      - Client-side validation for all fields.
+      - AJAX update for seamless user experience.
+      - Duplicate employee number prevention on both add and update.
+
 ## Learning curve and challenges
 
 - Connecting ASP.NET Core to MySQL on Mac
@@ -51,7 +68,11 @@
 - Debugging null data issues and testing endpoint routing
 - Writing clean and descriptive `<summary>` blocks for API methods
 - Implementing model validation and user-friendly error handling
-- Using cURL to test API endpoints
+- Implementing both client-side and server-side validation
+- Handling AJAX form submissions and displaying API errors
+- Preventing duplicate employee numbers on update
+- Writing clear XML documentation for API and model
+- Using cURL and Postman for thorough API testing
 
 ## Resources
 

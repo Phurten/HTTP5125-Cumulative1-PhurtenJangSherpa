@@ -74,6 +74,21 @@ namespace School.Controllers
         }
 
         /// <summary>
+        /// Shows the form to edit an existing teacher.
+        /// </summary>
+        /// <param name="id">Teacher ID to edit.</param>
+        /// <returns>Edit view with the selected Teacher object.</returns>
+        public IActionResult Edit(int id)
+        {
+            var teacherResult = _api.GetTeacherById(id);
+            if (teacherResult.Result is NotFoundObjectResult)
+                return NotFound($"Teacher with ID {id} does not exist.");
+
+            var teacher = teacherResult.Value;
+            return View(teacher);
+        }
+
+        /// <summary>
         /// Shows the delete confirmation page.
         /// </summary>
         public IActionResult DeleteConfirm(int id)

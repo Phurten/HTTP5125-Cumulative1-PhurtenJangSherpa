@@ -10,6 +10,7 @@
 <p><strong>Work Phone:</strong> @Model.TeacherWorkPhone</p>
 
 <p>
+    <a asp-action="Edit" asp-route-id="@Model.TeacherId" class="btn btn-primary">Edit</a>
     <a asp-action="DeleteConfirm" asp-route-id="@Model.TeacherId" class="btn btn-danger">Delete</a>
     <a asp-action="List" class="btn btn-secondary">Back to List</a>
 </p>

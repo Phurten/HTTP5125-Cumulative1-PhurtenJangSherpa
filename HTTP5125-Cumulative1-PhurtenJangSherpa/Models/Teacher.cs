@@ -4,17 +4,22 @@ using System.ComponentModel.DataAnnotations;
 
 namespace School.Models
 {
+    /// <summary>
+    /// Represents a teacher in the school database.
+    /// </summary>
     public class Teacher
     {
         /// <summary>
         /// The teacher id.
         /// </summary>
         public int TeacherId { get; set; }
+
         /// <summary>
         /// The first name of the teacher.
         /// </summary>
         [Required(ErrorMessage = "First name is required.")]
         public string? TeacherFName { get; set; }
+
         /// <summary>
         /// The last name of the teacher.
         /// </summary>
@@ -28,19 +33,23 @@ namespace School.Models
         [StringLength(10)]
         [RegularExpression(@"^T\d+$", ErrorMessage = "Employee number must start with 'T' followed by digits (e.g., T123).")]
         public string? EmployeeNumber { get; set; }
+
         /// <summary>
         /// The hire date of the teacher.
         /// </summary>
         [HireDateNotInFuture(ErrorMessage = "Hire date cannot be in the future.")]
         public DateTime? HireDate { get; set; }
-        /// <summary>
-        /// The hire date of the teacher.
-        /// </summary>
 
+        /// <summary>
+        /// The salary of the teacher.
+        /// </summary>
+        [Range(0, double.MaxValue, ErrorMessage = "Salary must be non-negative.")]
         public decimal? Salary { get; set; }
+
         /// <summary>
         /// The work phone number of the teacher.
         /// </summary>
+        [Phone(ErrorMessage = "Invalid phone number.")]
         public string? TeacherWorkPhone { get; set; }
 
         /// <summary>
@@ -48,7 +57,8 @@ namespace School.Models
         /// </summary>
         public List<Course>? CoursesTaught { get; set; }
     }
-     /// <summary>
+
+    /// <summary>
     /// Validation attribute to ensure hire date is not in the future.
     /// </summary>
     public class HireDateNotInFutureAttribute : ValidationAttribute
