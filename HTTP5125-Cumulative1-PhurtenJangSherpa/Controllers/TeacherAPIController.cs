@@ -71,7 +71,8 @@ namespace School.Controllers
                             TeacherLName = reader["teacherlname"].ToString(),
                             EmployeeNumber = reader["employeenumber"].ToString(),
                             HireDate = reader["hiredate"] == DBNull.Value ? null : (DateTime?)Convert.ToDateTime(reader["hiredate"]),
-                            Salary = reader["salary"] == DBNull.Value ? null : (decimal?)Convert.ToDecimal(reader["salary"])
+                            Salary = reader["salary"] == DBNull.Value ? null : (decimal?)Convert.ToDecimal(reader["salary"]),
+                            TeacherWorkPhone = reader["teacherworkphone"]?.ToString()
                         });
                     }
                 }
@@ -199,7 +200,7 @@ namespace School.Controllers
         /// </summary>
         /// <param name="id">The ID of the teacher to update.</param>
         /// <param name="teacher">The updated Teacher object.</param>
-        /// <returns>No content if successful; 404 if not found.</returns>
+        /// <returns>No content if successful; 404 if not found; 400 if validation fails.</returns>
         /// <example>
         /// PUT: api/teacher/3
         /// Request Body:
@@ -216,12 +217,45 @@ namespace School.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateTeacher(int id, [FromBody] Teacher teacher)
         {
+            // Check for ID mismatch
             if (teacher == null || id != teacher.TeacherId)
                 return BadRequest("Teacher ID mismatch.");
+
+            // Server-side validation
+            if (string.IsNullOrWhiteSpace(teacher.TeacherFName))
+                ModelState.AddModelError("TeacherFName", "First name is required.");
+            if (string.IsNullOrWhiteSpace(teacher.TeacherLName))
+                ModelState.AddModelError("TeacherLName", "Last name is required.");
+            if (teacher.HireDate.HasValue && teacher.HireDate.Value > DateTime.Today)
+                ModelState.AddModelError("HireDate", "Hire date cannot be in the future.");
+            if (teacher.Salary.HasValue && teacher.Salary.Value < 0)
+                ModelState.AddModelError("Salary", "Salary must be non-negative.");
 
             using (MySqlConnection conn = _context.AccessDatabase())
             {
                 conn.Open();
+
+                // Check for duplicate EmployeeNumber (excluding current teacher)
+                MySqlCommand dupCmd = conn.CreateCommand();
+                dupCmd.CommandText = "SELECT COUNT(*) FROM teachers WHERE employeenumber = @empnum AND teacherid <> @id";
+                dupCmd.Parameters.AddWithValue("@empnum", teacher.EmployeeNumber);
+                dupCmd.Parameters.AddWithValue("@id", id);
+                var dupCount = Convert.ToInt32(dupCmd.ExecuteScalar());
+                if (dupCount > 0)
+                    ModelState.AddModelError("EmployeeNumber", "Employee number already exists.");
+
+                // Check if teacher exists
+                MySqlCommand checkCmd = conn.CreateCommand();
+                checkCmd.CommandText = "SELECT COUNT(*) FROM teachers WHERE teacherid = @id";
+                checkCmd.Parameters.AddWithValue("@id", id);
+                var count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                if (count == 0)
+                    return NotFound($"Teacher with ID {id} not found.");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                // Update teacher
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = @"UPDATE teachers SET teacherfname=@fname, teacherlname=@lname, employeenumber=@empnum, hiredate=@hiredate, salary=@salary, teacherworkphone=@workphone
                             WHERE teacherid=@id";
@@ -233,9 +267,7 @@ namespace School.Controllers
                 cmd.Parameters.AddWithValue("@workphone", teacher.TeacherWorkPhone ?? (object)DBNull.Value);
                 cmd.Parameters.AddWithValue("@id", id);
 
-                int rows = cmd.ExecuteNonQuery();
-                if (rows == 0)
-                    return NotFound($"Teacher with ID {id} not found.");
+                cmd.ExecuteNonQuery();
             }
 
             return NoContent();
